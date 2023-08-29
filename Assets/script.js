@@ -22,8 +22,13 @@ $(".time-block").each(function () {
     // to get localstorage on page load
     const time = $(this).attr("id");
     const savedDescription = localStorage.getItem(time);
-    $(this).find("description").val(savedDescription);
+    console.log(time)
+    console.log(savedDescription)
 
+    if (savedDescription !== null) {
+        $(this).find(".description").val(savedDescription);
+    }
+    
     
     const currentTime = dayjs().hour();
     const divHour = parseInt($(this).attr("id").split("hour-")[1]);
